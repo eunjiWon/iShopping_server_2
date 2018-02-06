@@ -68,9 +68,9 @@ def load_labels(label_file):
   return label
 
 if __name__ == "__main__":
-  file_name = "tf_files/flower_photos/daisy/3475870145_685a19116d.jpg"
-  model_file = "tf_files/retrained_graph.pb"
-  label_file = "tf_files/retrained_labels.txt"
+  file_name = "/opt/tensorflow-for-poets-2_1/tf_files/flower_photos/daisy/3475870145_685a19116d.jpg"
+  model_file = "/opt/tensorflow-for-poets-2_1/tf_files/retrained_graph.pb"
+  label_file = "/opt/tensorflow-for-poets-2_1/tf_files/retrained_labels.txt"
   input_height = 224
   input_width = 224
   input_mean = 128
@@ -135,3 +135,18 @@ if __name__ == "__main__":
 
   for i in top_k:
     print(labels[i], results[i])
+
+
+# label 파일에 쓰기	
+_index = top_k[0]
+var1 = labels[_index]
+var2 = results[_index]
+ 
+print("This is maybe ... " + var1)		
+try: 
+	f = open("/opt/tensorflow-for-poets-2/t.txt", "w")
+	f.write(var1)
+except IOError:
+	print("Error: can't find file or read data")
+else:
+	print("Written content in the file successfully")
